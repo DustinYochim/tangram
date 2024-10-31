@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tangram Puzzle</title>
+
+
+</head>
+<body>
+<header><h1>Tangram Puzzle</h1></header>
+<div class="containers">
+    <div class="left-container">
+        <div class="shape big-blue-triangle ui-draggable"></div>
+        <div class="shape big-purple-triangle ui-draggable"></div>
+        <div class="shape small-red-triangle ui-draggable"></div>
+        <div class="shape small-green-square ui-draggable"> </div>
+        <div class="shape small-teal-triangle ui-draggable"></div>
+        <div class="shape small-purple-triangle ui-draggable"></div>
+        <div class="shape parallelogram ui-draggable"></div>
+    </div>
+    <div class="right-container"><img src="right-img.png"  alt="puzzle"/></div>
+</div>
+
+<div class="button-group">
+    <button class="btn btn-rotate">
+        <span class="glyphicon glyphicon-refresh"></span>
+    </button>
+    <button class="btn btn-left">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+    <button class="btn btn-right">
+        <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+    <button class="btn btn-up">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </button>
+    <button class="btn btn-down">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+    </button>
+</div>
+<script>
+    $(function(){
+        $(".ui-draggable").on("click", function(){
+            console.log(this)
+            $(this).draggable();
+            console.log("Made 'this' draggable.")
+            $(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            console.log("Made 'this' selected.")
+
+        });
+    });
+
+    let rotation = 0;
+
+    jQuery.fn.rotate = function(degrees){
+        $(this).css('transform', 'rotate(' + degrees + 'deg)');
+        return $(this);
+    };
+
+    $(".btn-rotate").on("click", (function() {
+        rotation += 45;
+        $(".selected").rotate(rotation);
+    }));
+
+    $(".btn-left").on("click", (function() {
+        console.log("btn left clicked");
+        const current = $(".selected");
+        let currentLeft = parseInt(current.css("left"));
+        current.css("left", (currentLeft - 1) + "px");
+    }))
+
+    $(".btn-right").on("click", (function() {
+        console.log("btn right clicked");
+        const current = $(".selected");
+        let currentLeft = parseInt(current.css("left"));
+        current.css("left", (currentLeft + 1) + "px");
+    }))
+
+    $(".btn-up").on("click", (function() {
+        console.log("btn up clicked");
+        const current = $(".selected");
+        let currentTop = parseInt(current.css("top"));
+        current.css("top", (currentTop - 1) + "px");
+    }))
+
+    $(".btn-down").on("click", (function() {
+        console.log("btn down clicked");
+        const current = $(".selected");
+        let currentTop = parseInt(current.css("top"));
+        current.css("top", (currentTop + 1) + "px");
+    }))
+
+
+
+
+
+</script>
+</body>
+</html>

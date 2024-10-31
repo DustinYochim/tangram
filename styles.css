@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.containers {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+
+}
+
+.left-container, .right-container {
+    /*border: 2px solid blue;*/
+    position: relative;
+    height: 400px;
+    width: 400px;
+}
+.left-container {
+    flex: 5;
+}
+
+.right-container {
+    z-index: -1;
+    flex: 6;
+}
+.right-container img {
+    /*width: 110%;*/
+    /*height: 110%;*/
+    margin-top: 50px;
+    height: auto;
+    width: 450px;
+}
+
+.left-container {
+    /*left: 150px;*/
+}
+
+.right-container {
+    /*left: 350px;*/
+}
+.big-blue-triangle {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 150px solid #1E90FF;
+}
+
+.big-purple-triangle {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid transparent;
+    border-left: 150px solid #8B008B;
+}
+
+.small-red-triangle {
+    position: absolute;
+    top: 50px;
+    left: 275px;
+    width: 0;
+    height: 0;
+    border-top: 75px solid transparent;
+    border-bottom: 75px solid transparent;
+    border-right: 75px solid red;
+}
+
+.small-green-square {
+    position: absolute;
+    left: 222px;
+    top: 146px;
+    width: 107px;
+    height: 107px;
+    background-color: green;
+    transform: rotate(45deg);
+}
+
+.small-teal-triangle {
+    position: absolute;
+    left: 124px;
+    top: 200px;
+    height: 0;
+    width: 0;
+    border-left: 76px solid transparent;
+    border-right: 76px solid transparent;
+    border-bottom: 76px solid #5F9EA0;
+}
+
+.small-purple-triangle {
+    left: 260px;
+    top: 206px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 106px solid transparent;
+    border-bottom: 106px solid transparent;
+    border-left: 106px solid #663399;
+    transform: rotate(45deg);
+}
+
+.parallelogram {
+    left: 87px;
+    top: 276px;
+    position: absolute;
+    width: 150px;
+    height: 74px;
+    background-color: orange;
+    transform: skew(-45deg);
+}
